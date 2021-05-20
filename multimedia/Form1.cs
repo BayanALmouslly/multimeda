@@ -33,6 +33,7 @@ namespace multimedia
             panfilter.Visible = false;
             pnResize.Visible = false;
             pantext.Visible = false;
+            pnConvert.Visible = false;
 
             trZoom.Minimum = 1;
             trZoom.Maximum = 6;
@@ -302,19 +303,67 @@ namespace multimedia
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            SaveFileDialog dialog = new SaveFileDialog();
-            dialog.Filter = "PNG Image|*.png|JPeg Image|*.jpg";
-            dialog.Title = "Save Chart As Image File";
-            dialog.FileName = "Sample.png";
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                int width = Convert.ToInt32(pictureBox1.Image.Width);
-                int height = Convert.ToInt32(pictureBox1.Image.Height);
-                Bitmap bmp = new Bitmap(width, height);
-                DrawToBitmap(bmp, new Rectangle(0, 0, width, height));
-                bmp.Save(dialog.FileName, ImageFormat.Jpeg);
-            }
+            //SaveFileDialog dialog = new SaveFileDialog();
+            //dialog.Filter = "PNG Image|*.png|JPeg Image|*.jpg";
+            //dialog.Title = "Save Chart As Image File";
+            //dialog.FileName = "Sample.png";
+            //if (dialog.ShowDialog() == DialogResult.OK)
+            //{
+            //    int width = Convert.ToInt32(pictureBox1.Image.Width);
+            //    int height = Convert.ToInt32(pictureBox1.Image.Height);
+            //    Bitmap bmp = new Bitmap(width, height);
+            //    DrawToBitmap(bmp, new Rectangle(0, 0, width, height));
+            //    bmp.Save(dialog.FileName, ImageFormat.Jpeg);
+            //}
+            save(pictureBox1.Image);
           
+        }
+        public void convert(string selectformat)
+        {
+            try
+            {
+                if (selectformat == "JPEG")
+                {
+                    pictureBox1.Image.Save(@"C:\Users\اا\Desktop\photo.Jpeg", ImageFormat.Jpeg);
+                }
+                else if (selectformat == "PNG")
+                {
+                    pictureBox1.Image.Save(@"C:\Users\اا\Desktop\photo.Png", ImageFormat.Png);
+                }
+                else if (selectformat == "Gif")
+                {
+                    pictureBox1.Image.Save(@"C:\Users\اا\Desktop\photo.Gif", ImageFormat.Gif);
+                }
+                else if (selectformat == "Tiff")
+                {
+                    pictureBox1.Image.Save(@"C:\Users\اا\Desktop\photo.Tiff", ImageFormat.Tiff);
+                }
+            }
+            catch(Exception)
+            {
+
+            }
+
+        }
+        private void save(Image image)
+        {
+            image.Save(@"C:\photo.Jpeg", ImageFormat.Jpeg);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            convert(comboBox1.Text);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            //show convert panel
+            pnConvert.Visible = true;
         }
     }
 }

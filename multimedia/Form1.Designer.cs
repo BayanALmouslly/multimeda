@@ -72,6 +72,10 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnAddText = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.pnConvert = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptstream)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trRed)).BeginInit();
@@ -85,6 +89,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnPictsurbox.SuspendLayout();
             this.pantext.SuspendLayout();
+            this.pnConvert.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -526,11 +531,56 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(0, 3);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(102, 38);
+            this.button6.TabIndex = 26;
+            this.button6.Text = "convert format";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(0, 67);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(102, 38);
+            this.button7.TabIndex = 27;
+            this.button7.Text = "save";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "JPEG",
+            "PNG",
+            "Gif",
+            "Tiff"});
+            this.comboBox1.Location = new System.Drawing.Point(-4, 40);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(106, 21);
+            this.comboBox1.TabIndex = 28;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // pnConvert
+            // 
+            this.pnConvert.Controls.Add(this.button7);
+            this.pnConvert.Controls.Add(this.button6);
+            this.pnConvert.Controls.Add(this.comboBox1);
+            this.pnConvert.Location = new System.Drawing.Point(244, 201);
+            this.pnConvert.Name = "pnConvert";
+            this.pnConvert.Size = new System.Drawing.Size(97, 108);
+            this.pnConvert.TabIndex = 29;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(802, 605);
+            this.Controls.Add(this.pnConvert);
             this.Controls.Add(this.pantext);
             this.Controls.Add(this.pnPictsurbox);
             this.Controls.Add(this.pnResize);
@@ -559,6 +609,7 @@
             this.pnPictsurbox.ResumeLayout(false);
             this.pantext.ResumeLayout(false);
             this.pantext.PerformLayout();
+            this.pnConvert.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -608,6 +659,10 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Panel pnConvert;
     }
 }
 
