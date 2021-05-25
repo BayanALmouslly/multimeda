@@ -72,3 +72,8 @@ C:\Users\اا\Desktop\multimedia\multimedia\multimedia\obj\Debug\multimedia.cspr
 C:\Users\اا\Desktop\multimedia\multimedia\multimedia\obj\Debug\multimedia.csproj.CopyComplete
 C:\Users\اا\Desktop\multimedia\multimedia\multimedia\obj\Debug\multimedia.exe
 C:\Users\اا\Desktop\multimedia\multimedia\multimedia\obj\Debug\multimedia.pdb
+C:\Users\اا\Desktop\multimedia\multimedia\multimedia\bin\Debug\AForge.dll
+C:\Users\اا\Desktop\multimedia\multimedia\multimedia\bin\Debug\AForge.Video.DirectShow.dll
+C:\Users\اا\Desktop\multimedia\multimedia\multimedia\bin\Debug\AForge.Video.dll
+C:\Users\اا\Desktop\multimedia\multimedia\multimedia\bin\Debug\Moalaa.dll
+C:\Users\اا\Desktop\multimedia\multimedia\multimedia\obj\Debug\multimedia.camera.resources

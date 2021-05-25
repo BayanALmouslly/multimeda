@@ -156,7 +156,36 @@ namespace multimedia
 
         private void chNegative_CheckedChanged(object sender, EventArgs e)
         {
-            pictureBox1.Image = pictureBox1.Image.negative();
+            //  pictureBox1.Image = pictureBox1.Image.negative();
+            Bitmap bmp = new Bitmap(pictureBox1.Image);
+            int width = bmp.Width;
+            int height = bmp.Height;
+
+            //negative
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    //get pixel value
+                    Color p = bmp.GetPixel(x, y);
+
+                    //extract ARGB value from p
+                    int a = p.A;
+                    int r = p.R;
+                    int g = p.G;
+                    int b = p.B;
+
+                    //find negative value
+                    r = 255 - r;
+                    g = 255 - g;
+                    b = 255 - b;
+
+                    //set new ARGB value in pixel
+                    bmp.SetPixel(x, y, Color.FromArgb(a, r, g, b));
+                }
+            }
+            pictureBox1.Image = bmp;
+
         }
         Bitmap mirrorImg;
         Bitmap beforMirror;
