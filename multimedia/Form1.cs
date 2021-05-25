@@ -12,7 +12,6 @@ using System.Web.UI.DataVisualization.Charting;
 using System.Windows.Forms;
 using Emgu.CV;
 using Emgu.CV.Structure;
-
 namespace multimedia
 {
     public  partial  class  Form1 : Form
@@ -28,12 +27,7 @@ namespace multimedia
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            panCamera.Visible = false;
-            pnzoom.Visible = false;
-            panfilter.Visible = false;
-            pnResize.Visible = false;
-            pantext.Visible = false;
-            pnConvert.Visible = false;
+            unVisiblePanel();
 
             trZoom.Minimum = 1;
             trZoom.Maximum = 6;
@@ -44,6 +38,15 @@ namespace multimedia
             this.DoubleBuffered = true;
 
 
+        }
+        private void unVisiblePanel()
+        {
+            panCamera.Visible = false;
+            pnzoom.Visible = false;
+            panfilter.Visible = false;
+            pnResize.Visible = false;
+            pantext.Visible = false;
+            pnConvert.Visible = false;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -110,6 +113,8 @@ namespace multimedia
 
         private void button1_Click(object sender, EventArgs e)
         {
+            unVisiblePanel();
+
             panCamera.Visible = true;
         }
 
@@ -121,6 +126,7 @@ namespace multimedia
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
+            unVisiblePanel();
             SaveFilterImage = pictureBox1.Image;
             panfilter.Visible = true;
         }
@@ -128,40 +134,23 @@ namespace multimedia
         private void btnSaveFilter_Click(object sender, EventArgs e)
         {
             SaveFilterImage = pictureBox1.Image;
-            filterunVisible();
+            panfilter.Visible=true;
 
         }
 
         private void btnCancelFilter_Click(object sender, EventArgs e)
         {
+            unVisiblePanel();
+
             pictureBox1.Image = SaveFilterImage;
-            filterunVisible();
+            panfilter.Visible=true;
         }
-        private void filterVisible()
-        {
-            trBlue.Visible = true;
-            trRed.Visible = true;
-            trGreen.Visible = true;
-            lbRed.Visible = true;
-            lbBlue.Visible = true;
-            lbGreen.Visible = true;
-            btnSaveFilter.Visible = true;
-            btnCancelFilter.Visible = true;
-        }
-        private void filterunVisible()
-        {
-            trBlue.Visible = false;
-            trRed.Visible = false;
-            trGreen.Visible = false;
-            lbRed.Visible = false;
-            lbBlue.Visible = false;
-            lbGreen.Visible = false;
-            btnSaveFilter.Visible = false;
-            btnCancelFilter.Visible = false;
-        }
+       
 
         private void btnRemoveEdit_Click(object sender, EventArgs e)
         {
+            unVisiblePanel();
+
             pictureBox1.Image = tempImage;
         }
 
@@ -173,6 +162,8 @@ namespace multimedia
         Bitmap beforMirror;
         private void btnMirror_Click(object sender, EventArgs e)
         {
+            unVisiblePanel();
+
             beforMirror = new Bitmap(pictureBox1.Image);
             mirrorImg = new Bitmap(pictureBox1.Image.Width*2,pictureBox1.Image.Height);
             for (int y = 0; y < pictureBox1.Image.Height; y++)
@@ -210,6 +201,7 @@ namespace multimedia
 
         private void button4_Click(object sender, EventArgs e)
         {
+            unVisiblePanel();
             Bitmap pic = new Bitmap(pictureBox1.Image);
             for (int w = 0; w < pic.Width; w++)
             {
@@ -229,14 +221,15 @@ namespace multimedia
 
         private void btnResize_Click(object sender, EventArgs e)
         {
+            unVisiblePanel();
             pnResize.Visible = true;
-            pictureBox1.Width = Convert.ToInt32(txtwidth.Text);
-            pictureBox1.Height = Convert.ToInt32(txtheight.Text);
+            
 
         }
 
         private void btnRotate_Click(object sender, EventArgs e)
         {
+            unVisiblePanel();
             Image img = pictureBox1.Image;
             img.RotateFlip(RotateFlipType.Rotate90FlipNone);
             pictureBox1.Image = img;
@@ -244,6 +237,7 @@ namespace multimedia
 
         private void btnReverse_Click(object sender, EventArgs e)
         {
+            unVisiblePanel();
             Image img = pictureBox1.Image;
             img.RotateFlip(RotateFlipType.Rotate270FlipNone);
             pictureBox1.Image = img;
@@ -254,6 +248,8 @@ namespace multimedia
         private void button5_Click(object sender, EventArgs e)
         {
             //copy
+            unVisiblePanel();
+
             Image img = new Bitmap(pictureBox1.Width, pictureBox1.Height);
 
             Graphics g = Graphics.FromImage(img);
@@ -267,6 +263,8 @@ namespace multimedia
 
         private void btnWriteText_Click(object sender, EventArgs e)
         {
+            unVisiblePanel();
+
             pantext.Visible = true;
         }
 
@@ -281,6 +279,7 @@ namespace multimedia
         private void button3_Click(object sender, EventArgs e)
         {
             //zoom
+            unVisiblePanel();
             pnzoom.Visible = true;
         }
 
@@ -303,19 +302,20 @@ namespace multimedia
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //SaveFileDialog dialog = new SaveFileDialog();
-            //dialog.Filter = "PNG Image|*.png|JPeg Image|*.jpg";
-            //dialog.Title = "Save Chart As Image File";
-            //dialog.FileName = "Sample.png";
-            //if (dialog.ShowDialog() == DialogResult.OK)
-            //{
-            //    int width = Convert.ToInt32(pictureBox1.Image.Width);
-            //    int height = Convert.ToInt32(pictureBox1.Image.Height);
-            //    Bitmap bmp = new Bitmap(width, height);
-            //    DrawToBitmap(bmp, new Rectangle(0, 0, width, height));
-            //    bmp.Save(dialog.FileName, ImageFormat.Jpeg);
-            //}
-            save(pictureBox1.Image);
+            unVisiblePanel();
+
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "PNG Image|*.png|JPeg Image|*.jpg";
+            dialog.Title = "Save Chart As Image File";
+            dialog.FileName = "Sample.png";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                int width = Convert.ToInt32(pictureBox1.Image.Width);
+                int height = Convert.ToInt32(pictureBox1.Image.Height);
+                Bitmap bmp = new Bitmap(width, height);
+                DrawToBitmap(bmp, new Rectangle(0, 0, width, height));
+                bmp.Save(dialog.FileName, ImageFormat.Jpeg);
+            }
           
         }
         public void convert(string selectformat)
@@ -364,6 +364,37 @@ namespace multimedia
         {
             //show convert panel
             pnConvert.Visible = true;
+        }
+
+        private void btnmerge_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            //convertformat image
+            unVisiblePanel();
+            pnConvert.Visible = true;
+        }
+
+        private void pnConvert_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnSaveResize_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Width = Convert.ToInt32(txtwidth.Text);
+            pictureBox1.Height = Convert.ToInt32(txtheight.Text);
+        }
+
+        private void btnSaveDB_Click(object sender, EventArgs e)
+        {
+            DataAccessLayer dal = new DataAccessLayer();
+            Bitmap bitmap = new Bitmap(pictureBox1.Image);
+            CustomImage cm = new CustomImage("photo", bitmap);
+            dal.SaveImage(cm);
         }
     }
 }

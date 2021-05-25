@@ -30,10 +30,15 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnmerge = new System.Windows.Forms.Button();
             this.btnReverse = new System.Windows.Forms.Button();
             this.btnRotate = new System.Windows.Forms.Button();
             this.btnResize = new System.Windows.Forms.Button();
+            this.btnWriteText = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.btnMirror = new System.Windows.Forms.Button();
             this.btnRemoveEdit = new System.Windows.Forms.Button();
@@ -64,18 +69,15 @@
             this.txtwidth = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnPictsurbox = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.btnWriteText = new System.Windows.Forms.Button();
-            this.btnmerge = new System.Windows.Forms.Button();
             this.pantext = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnAddText = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.pnConvert = new System.Windows.Forms.Panel();
+            this.btnSaveResize = new System.Windows.Forms.Button();
+            this.btnSaveDB = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptstream)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trRed)).BeginInit();
@@ -103,6 +105,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnSaveDB);
+            this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.btnmerge);
             this.panel1.Controls.Add(this.btnReverse);
@@ -117,14 +121,44 @@
             this.panel1.Controls.Add(this.btnFilter);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.openimg);
-            this.panel1.Location = new System.Drawing.Point(630, 12);
+            this.panel1.Location = new System.Drawing.Point(630, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(136, 523);
+            this.panel1.Size = new System.Drawing.Size(136, 591);
             this.panel1.TabIndex = 4;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(0, 450);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(136, 38);
+            this.button6.TabIndex = 27;
+            this.button6.Text = "convert format";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click_1);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(0, 418);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(136, 38);
+            this.btnSave.TabIndex = 25;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnmerge
+            // 
+            this.btnmerge.Location = new System.Drawing.Point(0, 383);
+            this.btnmerge.Name = "btnmerge";
+            this.btnmerge.Size = new System.Drawing.Size(136, 38);
+            this.btnmerge.TabIndex = 24;
+            this.btnmerge.Text = "mergeImage";
+            this.btnmerge.UseVisualStyleBackColor = true;
+            this.btnmerge.Click += new System.EventHandler(this.btnmerge_Click_1);
             // 
             // btnReverse
             // 
-            this.btnReverse.Location = new System.Drawing.Point(0, 280);
+            this.btnReverse.Location = new System.Drawing.Point(0, 276);
             this.btnReverse.Name = "btnReverse";
             this.btnReverse.Size = new System.Drawing.Size(136, 34);
             this.btnReverse.TabIndex = 13;
@@ -134,7 +168,7 @@
             // 
             // btnRotate
             // 
-            this.btnRotate.Location = new System.Drawing.Point(0, 247);
+            this.btnRotate.Location = new System.Drawing.Point(0, 243);
             this.btnRotate.Name = "btnRotate";
             this.btnRotate.Size = new System.Drawing.Size(136, 34);
             this.btnRotate.TabIndex = 12;
@@ -144,7 +178,7 @@
             // 
             // btnResize
             // 
-            this.btnResize.Location = new System.Drawing.Point(0, 211);
+            this.btnResize.Location = new System.Drawing.Point(0, 209);
             this.btnResize.Name = "btnResize";
             this.btnResize.Size = new System.Drawing.Size(136, 36);
             this.btnResize.TabIndex = 11;
@@ -152,9 +186,19 @@
             this.btnResize.UseVisualStyleBackColor = true;
             this.btnResize.Click += new System.EventHandler(this.btnResize_Click);
             // 
+            // btnWriteText
+            // 
+            this.btnWriteText.Location = new System.Drawing.Point(0, 346);
+            this.btnWriteText.Name = "btnWriteText";
+            this.btnWriteText.Size = new System.Drawing.Size(136, 46);
+            this.btnWriteText.TabIndex = 22;
+            this.btnWriteText.Text = "text";
+            this.btnWriteText.UseVisualStyleBackColor = true;
+            this.btnWriteText.Click += new System.EventHandler(this.btnWriteText_Click);
+            // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(0, 174);
+            this.button4.Location = new System.Drawing.Point(0, 172);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(136, 38);
             this.button4.TabIndex = 10;
@@ -162,9 +206,19 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(0, 307);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(136, 43);
+            this.button5.TabIndex = 21;
+            this.button5.Text = "copy";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(0, 139);
+            this.button3.Location = new System.Drawing.Point(0, 138);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(136, 35);
             this.button3.TabIndex = 9;
@@ -174,7 +228,7 @@
             // 
             // btnMirror
             // 
-            this.btnMirror.Location = new System.Drawing.Point(0, 104);
+            this.btnMirror.Location = new System.Drawing.Point(0, 102);
             this.btnMirror.Name = "btnMirror";
             this.btnMirror.Size = new System.Drawing.Size(136, 37);
             this.btnMirror.TabIndex = 8;
@@ -184,9 +238,9 @@
             // 
             // btnRemoveEdit
             // 
-            this.btnRemoveEdit.Location = new System.Drawing.Point(0, 473);
+            this.btnRemoveEdit.Location = new System.Drawing.Point(1, 530);
             this.btnRemoveEdit.Name = "btnRemoveEdit";
-            this.btnRemoveEdit.Size = new System.Drawing.Size(136, 47);
+            this.btnRemoveEdit.Size = new System.Drawing.Size(136, 60);
             this.btnRemoveEdit.TabIndex = 7;
             this.btnRemoveEdit.Text = "Remove Edit";
             this.btnRemoveEdit.UseVisualStyleBackColor = true;
@@ -194,7 +248,7 @@
             // 
             // btnFilter
             // 
-            this.btnFilter.Location = new System.Drawing.Point(0, 67);
+            this.btnFilter.Location = new System.Drawing.Point(0, 66);
             this.btnFilter.Name = "btnFilter";
             this.btnFilter.Size = new System.Drawing.Size(136, 38);
             this.btnFilter.TabIndex = 6;
@@ -204,7 +258,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(0, 34);
+            this.button1.Location = new System.Drawing.Point(0, 33);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(136, 35);
             this.button1.TabIndex = 5;
@@ -371,15 +425,15 @@
             // 
             this.pnzoom.Controls.Add(this.label2);
             this.pnzoom.Controls.Add(this.trZoom);
-            this.pnzoom.Location = new System.Drawing.Point(384, 544);
+            this.pnzoom.Location = new System.Drawing.Point(333, 544);
             this.pnzoom.Name = "pnzoom";
-            this.pnzoom.Size = new System.Drawing.Size(401, 49);
+            this.pnzoom.Size = new System.Drawing.Size(291, 49);
             this.pnzoom.TabIndex = 17;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(263, 15);
+            this.label2.Location = new System.Drawing.Point(256, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 15;
@@ -395,13 +449,14 @@
             // 
             // pnResize
             // 
+            this.pnResize.Controls.Add(this.btnSaveResize);
             this.pnResize.Controls.Add(this.lbheight);
             this.pnResize.Controls.Add(this.lbwidth);
             this.pnResize.Controls.Add(this.txtheight);
             this.pnResize.Controls.Add(this.txtwidth);
             this.pnResize.Location = new System.Drawing.Point(12, 432);
             this.pnResize.Name = "pnResize";
-            this.pnResize.Size = new System.Drawing.Size(210, 80);
+            this.pnResize.Size = new System.Drawing.Size(210, 107);
             this.pnResize.TabIndex = 19;
             // 
             // lbheight
@@ -456,60 +511,15 @@
             this.pnPictsurbox.Size = new System.Drawing.Size(250, 332);
             this.pnPictsurbox.TabIndex = 20;
             // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(0, 310);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(136, 43);
-            this.button5.TabIndex = 21;
-            this.button5.Text = "copy";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // btnWriteText
-            // 
-            this.btnWriteText.Location = new System.Drawing.Point(0, 351);
-            this.btnWriteText.Name = "btnWriteText";
-            this.btnWriteText.Size = new System.Drawing.Size(136, 46);
-            this.btnWriteText.TabIndex = 22;
-            this.btnWriteText.Text = "text";
-            this.btnWriteText.UseVisualStyleBackColor = true;
-            this.btnWriteText.Click += new System.EventHandler(this.btnWriteText_Click);
-            // 
-            // btnmerge
-            // 
-            this.btnmerge.Location = new System.Drawing.Point(0, 390);
-            this.btnmerge.Name = "btnmerge";
-            this.btnmerge.Size = new System.Drawing.Size(136, 38);
-            this.btnmerge.TabIndex = 24;
-            this.btnmerge.Text = "mergeImage";
-            this.btnmerge.UseVisualStyleBackColor = true;
-            // 
             // pantext
             // 
             this.pantext.Controls.Add(this.btnAddText);
             this.pantext.Controls.Add(this.textBox1);
             this.pantext.Controls.Add(this.label3);
-            this.pantext.Location = new System.Drawing.Point(29, 545);
+            this.pantext.Location = new System.Drawing.Point(3, 545);
             this.pantext.Name = "pantext";
             this.pantext.Size = new System.Drawing.Size(349, 48);
             this.pantext.TabIndex = 21;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 14);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "write text";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(72, 11);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(206, 20);
-            this.textBox1.TabIndex = 4;
             // 
             // btnAddText
             // 
@@ -521,25 +531,21 @@
             this.btnAddText.UseVisualStyleBackColor = true;
             this.btnAddText.Click += new System.EventHandler(this.btnAddText_Click);
             // 
-            // btnSave
+            // textBox1
             // 
-            this.btnSave.Location = new System.Drawing.Point(1, 429);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(136, 38);
-            this.btnSave.TabIndex = 25;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.textBox1.Location = new System.Drawing.Point(72, 11);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(206, 20);
+            this.textBox1.TabIndex = 4;
             // 
-            // button6
+            // label3
             // 
-            this.button6.Location = new System.Drawing.Point(0, 3);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(102, 38);
-            this.button6.TabIndex = 26;
-            this.button6.Text = "convert format";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(8, 14);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(54, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "write text";
             // 
             // button7
             // 
@@ -568,18 +574,38 @@
             // pnConvert
             // 
             this.pnConvert.Controls.Add(this.button7);
-            this.pnConvert.Controls.Add(this.button6);
             this.pnConvert.Controls.Add(this.comboBox1);
             this.pnConvert.Location = new System.Drawing.Point(244, 201);
             this.pnConvert.Name = "pnConvert";
             this.pnConvert.Size = new System.Drawing.Size(97, 108);
             this.pnConvert.TabIndex = 29;
+            this.pnConvert.Paint += new System.Windows.Forms.PaintEventHandler(this.pnConvert_Paint);
+            // 
+            // btnSaveResize
+            // 
+            this.btnSaveResize.Location = new System.Drawing.Point(51, 70);
+            this.btnSaveResize.Name = "btnSaveResize";
+            this.btnSaveResize.Size = new System.Drawing.Size(60, 33);
+            this.btnSaveResize.TabIndex = 29;
+            this.btnSaveResize.Text = "Resize";
+            this.btnSaveResize.UseVisualStyleBackColor = true;
+            this.btnSaveResize.Click += new System.EventHandler(this.btnSaveResize_Click);
+            // 
+            // btnSaveDB
+            // 
+            this.btnSaveDB.Location = new System.Drawing.Point(1, 485);
+            this.btnSaveDB.Name = "btnSaveDB";
+            this.btnSaveDB.Size = new System.Drawing.Size(132, 48);
+            this.btnSaveDB.TabIndex = 29;
+            this.btnSaveDB.Text = "Save of DB";
+            this.btnSaveDB.UseVisualStyleBackColor = true;
+            this.btnSaveDB.Click += new System.EventHandler(this.btnSaveDB_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 605);
+            this.ClientSize = new System.Drawing.Size(770, 605);
             this.Controls.Add(this.pnConvert);
             this.Controls.Add(this.pantext);
             this.Controls.Add(this.pnPictsurbox);
@@ -659,10 +685,12 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Panel pnConvert;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnSaveResize;
+        private System.Windows.Forms.Button btnSaveDB;
     }
 }
 
