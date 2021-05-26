@@ -110,8 +110,8 @@ namespace multimedia
             //    btnStream.Text = @"Start Streaming";
             //}
             //_streaming = !_streaming;
-            pictureBox1.GetImageFromCamera();
-            button2.Enabled = true;
+            //ptstream.GetImageFromCamera();
+            //button2.Enabled = true;
         }
 
        
@@ -132,6 +132,8 @@ namespace multimedia
             unVisiblePanel();
 
             panCamera.Visible = true;
+            ptstream.GetImageFromCamera();
+            button2.Enabled = true;
         }
 
         private void changeScroll(object sender, EventArgs e)

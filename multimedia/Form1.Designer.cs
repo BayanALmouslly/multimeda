@@ -348,6 +348,7 @@
             this.btnStream.TabIndex = 6;
             this.btnStream.Text = "start/stop stream";
             this.btnStream.UseVisualStyleBackColor = false;
+            this.btnStream.Visible = false;
             this.btnStream.Click += new System.EventHandler(this.btnStream_Click);
             // 
             // button2
