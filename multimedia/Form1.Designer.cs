@@ -30,6 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSaveDB = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnmerge = new System.Windows.Forms.Button();
@@ -63,6 +64,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.trZoom = new System.Windows.Forms.TrackBar();
             this.pnResize = new System.Windows.Forms.Panel();
+            this.btnSaveResize = new System.Windows.Forms.Button();
             this.lbheight = new System.Windows.Forms.Label();
             this.lbwidth = new System.Windows.Forms.Label();
             this.txtheight = new System.Windows.Forms.TextBox();
@@ -76,8 +78,8 @@
             this.button7 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.pnConvert = new System.Windows.Forms.Panel();
-            this.btnSaveResize = new System.Windows.Forms.Button();
-            this.btnSaveDB = new System.Windows.Forms.Button();
+            this.btnCrup = new System.Windows.Forms.Button();
+            this.btnCropImg = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptstream)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trRed)).BeginInit();
@@ -105,6 +107,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnCrup);
             this.panel1.Controls.Add(this.btnSaveDB);
             this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.btnSave);
@@ -123,12 +126,22 @@
             this.panel1.Controls.Add(this.openimg);
             this.panel1.Location = new System.Drawing.Point(630, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(136, 591);
+            this.panel1.Size = new System.Drawing.Size(136, 666);
             this.panel1.TabIndex = 4;
+            // 
+            // btnSaveDB
+            // 
+            this.btnSaveDB.Location = new System.Drawing.Point(1, 590);
+            this.btnSaveDB.Name = "btnSaveDB";
+            this.btnSaveDB.Size = new System.Drawing.Size(132, 36);
+            this.btnSaveDB.TabIndex = 29;
+            this.btnSaveDB.Text = "Save of DB";
+            this.btnSaveDB.UseVisualStyleBackColor = true;
+            this.btnSaveDB.Click += new System.EventHandler(this.btnSaveDB_Click);
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(0, 450);
+            this.button6.Location = new System.Drawing.Point(0, 553);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(136, 38);
             this.button6.TabIndex = 27;
@@ -138,7 +151,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(0, 418);
+            this.btnSave.Location = new System.Drawing.Point(0, 519);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(136, 38);
             this.btnSave.TabIndex = 25;
@@ -148,7 +161,7 @@
             // 
             // btnmerge
             // 
-            this.btnmerge.Location = new System.Drawing.Point(0, 383);
+            this.btnmerge.Location = new System.Drawing.Point(0, 384);
             this.btnmerge.Name = "btnmerge";
             this.btnmerge.Size = new System.Drawing.Size(136, 38);
             this.btnmerge.TabIndex = 24;
@@ -238,9 +251,9 @@
             // 
             // btnRemoveEdit
             // 
-            this.btnRemoveEdit.Location = new System.Drawing.Point(1, 530);
+            this.btnRemoveEdit.Location = new System.Drawing.Point(1, 625);
             this.btnRemoveEdit.Name = "btnRemoveEdit";
-            this.btnRemoveEdit.Size = new System.Drawing.Size(136, 60);
+            this.btnRemoveEdit.Size = new System.Drawing.Size(136, 38);
             this.btnRemoveEdit.TabIndex = 7;
             this.btnRemoveEdit.Text = "Remove Edit";
             this.btnRemoveEdit.UseVisualStyleBackColor = true;
@@ -459,6 +472,16 @@
             this.pnResize.Size = new System.Drawing.Size(210, 107);
             this.pnResize.TabIndex = 19;
             // 
+            // btnSaveResize
+            // 
+            this.btnSaveResize.Location = new System.Drawing.Point(51, 70);
+            this.btnSaveResize.Name = "btnSaveResize";
+            this.btnSaveResize.Size = new System.Drawing.Size(60, 33);
+            this.btnSaveResize.TabIndex = 29;
+            this.btnSaveResize.Text = "Resize";
+            this.btnSaveResize.UseVisualStyleBackColor = true;
+            this.btnSaveResize.Click += new System.EventHandler(this.btnSaveResize_Click);
+            // 
             // lbheight
             // 
             this.lbheight.AutoSize = true;
@@ -581,31 +604,32 @@
             this.pnConvert.TabIndex = 29;
             this.pnConvert.Paint += new System.Windows.Forms.PaintEventHandler(this.pnConvert_Paint);
             // 
-            // btnSaveResize
+            // btnCrup
             // 
-            this.btnSaveResize.Location = new System.Drawing.Point(51, 70);
-            this.btnSaveResize.Name = "btnSaveResize";
-            this.btnSaveResize.Size = new System.Drawing.Size(60, 33);
-            this.btnSaveResize.TabIndex = 29;
-            this.btnSaveResize.Text = "Resize";
-            this.btnSaveResize.UseVisualStyleBackColor = true;
-            this.btnSaveResize.Click += new System.EventHandler(this.btnSaveResize_Click);
+            this.btnCrup.Location = new System.Drawing.Point(1, 420);
+            this.btnCrup.Name = "btnCrup";
+            this.btnCrup.Size = new System.Drawing.Size(136, 38);
+            this.btnCrup.TabIndex = 30;
+            this.btnCrup.Text = "crop";
+            this.btnCrup.UseVisualStyleBackColor = true;
+            this.btnCrup.Click += new System.EventHandler(this.btnCrup_Click);
             // 
-            // btnSaveDB
+            // btnCropImg
             // 
-            this.btnSaveDB.Location = new System.Drawing.Point(1, 485);
-            this.btnSaveDB.Name = "btnSaveDB";
-            this.btnSaveDB.Size = new System.Drawing.Size(132, 48);
-            this.btnSaveDB.TabIndex = 29;
-            this.btnSaveDB.Text = "Save of DB";
-            this.btnSaveDB.UseVisualStyleBackColor = true;
-            this.btnSaveDB.Click += new System.EventHandler(this.btnSaveDB_Click);
+            this.btnCropImg.Location = new System.Drawing.Point(240, 140);
+            this.btnCropImg.Name = "btnCropImg";
+            this.btnCropImg.Size = new System.Drawing.Size(101, 38);
+            this.btnCropImg.TabIndex = 31;
+            this.btnCropImg.Text = "crop";
+            this.btnCropImg.UseVisualStyleBackColor = true;
+            this.btnCropImg.Click += new System.EventHandler(this.btnCropImg_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(770, 605);
+            this.ClientSize = new System.Drawing.Size(770, 680);
+            this.Controls.Add(this.btnCropImg);
             this.Controls.Add(this.pnConvert);
             this.Controls.Add(this.pantext);
             this.Controls.Add(this.pnPictsurbox);
@@ -691,6 +715,8 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button btnSaveResize;
         private System.Windows.Forms.Button btnSaveDB;
+        private System.Windows.Forms.Button btnCrup;
+        private System.Windows.Forms.Button btnCropImg;
     }
 }
 
