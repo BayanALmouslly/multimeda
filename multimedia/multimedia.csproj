@@ -37,13 +37,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AForge">
-      <HintPath>..\..\AForge.dll</HintPath>
+      <HintPath>..\AForge.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Video">
-      <HintPath>..\..\AForge.Video.dll</HintPath>
+      <HintPath>..\AForge.Video.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Video.DirectShow">
-      <HintPath>..\..\AForge.Video.DirectShow.dll</HintPath>
+      <HintPath>..\AForge.Video.DirectShow.dll</HintPath>
     </Reference>
     <Reference Include="Control.Draggable, Version=1.0.5049.269, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Control.Draggable.1.0.5049.269\lib\net35-Client\Control.Draggable.dll</HintPath>
@@ -61,10 +61,10 @@
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Moalaa">
-      <HintPath>..\..\Moalaa.dll</HintPath>
+      <HintPath>..\Moalaa.dll</HintPath>
     </Reference>
     <Reference Include="MultiMediaCV">
-      <HintPath>..\..\MultiMediaCV.dll</HintPath>
+      <HintPath>..\MultiMediaCV.dll</HintPath>
     </Reference>
     <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
       <HintPath>..\packages\OpenTK.1.1.2225.0\lib\net20\OpenTK.dll</HintPath>

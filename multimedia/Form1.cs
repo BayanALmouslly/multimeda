@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
@@ -30,7 +31,8 @@ namespace multimedia
 
 
         }
-        Image undoImg;
+        Stack<Image> undoIamges = new Stack<Image>();
+        //Image undoImg;
         private void unVisiblePanel()
         {
             panCamera.Visible = false;
@@ -40,7 +42,8 @@ namespace multimedia
             pnSearch.Visible = false;
             pnSave.Visible = false;
             btnCropImg.Visible = false;
-            undoImg = pictureBox1.Image;
+            undoIamges.Push(pictureBox1.Image);
+            //undoImg = pictureBox1.Image;
             lbTxt.Text = null;
 
 
@@ -608,7 +611,11 @@ namespace multimedia
 
         private void btnUndo_Click(object sender, EventArgs e)
         {
-            pictureBox1.Image = undoImg;
+            Image undoimage = undoIamges.Pop();
+            if (undoimage != null)
+                pictureBox1.Image = undoimage;
+            else
+                pictureBox1.Image = tempImage;
         }
 
         private void btnSaveTxt_Click(object sender, EventArgs e)

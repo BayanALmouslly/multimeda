@@ -1,10 +1,16 @@
 
-KokazGoodsTransfer/bin/Debug/netcoreapp3.0/KokazGoodsTransfer.pdb
+multimedia/bin
 /bin
 bin
 ./bin
 .vs
 /.vs
-ScaffoldAndExport.bat
-KokazGoodsTransfer/obj
+./obj
+multimedia/obj  
+/obj
 PublishToHerohuBat.bat
+AForge.dll
+AForge.Video.DirectShow.dll
+AForge.Video.dll
+Moalaa.dll
+MultiMediaCV.dll
