@@ -30,6 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCrup = new System.Windows.Forms.Button();
             this.btnSaveDB = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -78,8 +79,10 @@
             this.button7 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.pnConvert = new System.Windows.Forms.Panel();
-            this.btnCrup = new System.Windows.Forms.Button();
             this.btnCropImg = new System.Windows.Forms.Button();
+            this.lbTxt = new System.Windows.Forms.Label();
+            this.btnRecoveryTxt = new System.Windows.Forms.Button();
+            this.btnFont = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptstream)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trRed)).BeginInit();
@@ -128,6 +131,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(136, 666);
             this.panel1.TabIndex = 4;
+            // 
+            // btnCrup
+            // 
+            this.btnCrup.Location = new System.Drawing.Point(1, 420);
+            this.btnCrup.Name = "btnCrup";
+            this.btnCrup.Size = new System.Drawing.Size(136, 38);
+            this.btnCrup.TabIndex = 30;
+            this.btnCrup.Text = "crop";
+            this.btnCrup.UseVisualStyleBackColor = true;
+            this.btnCrup.Click += new System.EventHandler(this.btnCrup_Click);
             // 
             // btnSaveDB
             // 
@@ -528,6 +541,7 @@
             // pnPictsurbox
             // 
             this.pnPictsurbox.AutoScroll = true;
+            this.pnPictsurbox.Controls.Add(this.lbTxt);
             this.pnPictsurbox.Controls.Add(this.pictureBox1);
             this.pnPictsurbox.Location = new System.Drawing.Point(340, 12);
             this.pnPictsurbox.Name = "pnPictsurbox";
@@ -536,17 +550,19 @@
             // 
             // pantext
             // 
+            this.pantext.Controls.Add(this.btnFont);
+            this.pantext.Controls.Add(this.btnRecoveryTxt);
             this.pantext.Controls.Add(this.btnAddText);
             this.pantext.Controls.Add(this.textBox1);
             this.pantext.Controls.Add(this.label3);
             this.pantext.Location = new System.Drawing.Point(3, 545);
             this.pantext.Name = "pantext";
-            this.pantext.Size = new System.Drawing.Size(349, 48);
+            this.pantext.Size = new System.Drawing.Size(349, 83);
             this.pantext.TabIndex = 21;
             // 
             // btnAddText
             // 
-            this.btnAddText.Location = new System.Drawing.Point(284, 11);
+            this.btnAddText.Location = new System.Drawing.Point(98, 47);
             this.btnAddText.Name = "btnAddText";
             this.btnAddText.Size = new System.Drawing.Size(62, 31);
             this.btnAddText.TabIndex = 25;
@@ -604,16 +620,6 @@
             this.pnConvert.TabIndex = 29;
             this.pnConvert.Paint += new System.Windows.Forms.PaintEventHandler(this.pnConvert_Paint);
             // 
-            // btnCrup
-            // 
-            this.btnCrup.Location = new System.Drawing.Point(1, 420);
-            this.btnCrup.Name = "btnCrup";
-            this.btnCrup.Size = new System.Drawing.Size(136, 38);
-            this.btnCrup.TabIndex = 30;
-            this.btnCrup.Text = "crop";
-            this.btnCrup.UseVisualStyleBackColor = true;
-            this.btnCrup.Click += new System.EventHandler(this.btnCrup_Click);
-            // 
             // btnCropImg
             // 
             this.btnCropImg.Location = new System.Drawing.Point(240, 140);
@@ -623,6 +629,35 @@
             this.btnCropImg.Text = "crop";
             this.btnCropImg.UseVisualStyleBackColor = true;
             this.btnCropImg.Click += new System.EventHandler(this.btnCropImg_Click);
+            // 
+            // lbTxt
+            // 
+            this.lbTxt.AutoSize = true;
+            this.lbTxt.Location = new System.Drawing.Point(103, 151);
+            this.lbTxt.Name = "lbTxt";
+            this.lbTxt.Size = new System.Drawing.Size(0, 13);
+            this.lbTxt.TabIndex = 11;
+            this.lbTxt.Click += new System.EventHandler(this.lbTxt_Click);
+            // 
+            // btnRecoveryTxt
+            // 
+            this.btnRecoveryTxt.Location = new System.Drawing.Point(190, 47);
+            this.btnRecoveryTxt.Name = "btnRecoveryTxt";
+            this.btnRecoveryTxt.Size = new System.Drawing.Size(62, 31);
+            this.btnRecoveryTxt.TabIndex = 26;
+            this.btnRecoveryTxt.Text = "recovery";
+            this.btnRecoveryTxt.UseVisualStyleBackColor = true;
+            this.btnRecoveryTxt.Click += new System.EventHandler(this.btnRecoveryTxt_Click);
+            // 
+            // btnFont
+            // 
+            this.btnFont.Location = new System.Drawing.Point(11, 50);
+            this.btnFont.Name = "btnFont";
+            this.btnFont.Size = new System.Drawing.Size(62, 31);
+            this.btnFont.TabIndex = 27;
+            this.btnFont.Text = "font";
+            this.btnFont.UseVisualStyleBackColor = true;
+            this.btnFont.Click += new System.EventHandler(this.btnFont_Click);
             // 
             // Form1
             // 
@@ -657,6 +692,7 @@
             this.pnResize.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnPictsurbox.ResumeLayout(false);
+            this.pnPictsurbox.PerformLayout();
             this.pantext.ResumeLayout(false);
             this.pantext.PerformLayout();
             this.pnConvert.ResumeLayout(false);
@@ -717,6 +753,9 @@
         private System.Windows.Forms.Button btnSaveDB;
         private System.Windows.Forms.Button btnCrup;
         private System.Windows.Forms.Button btnCropImg;
+        private System.Windows.Forms.Label lbTxt;
+        private System.Windows.Forms.Button btnRecoveryTxt;
+        private System.Windows.Forms.Button btnFont;
     }
 }
 

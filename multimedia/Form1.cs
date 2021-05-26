@@ -36,6 +36,7 @@ namespace multimedia
             trZoom.UseWaitCursor = false;
 
             this.DoubleBuffered = true;
+            lbtext();
 
 
         }
@@ -278,15 +279,8 @@ namespace multimedia
             //copy
             unVisiblePanel();
 
-            Image img = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            Clipboard.SetDataObject(pictureBox1.Image);
 
-            Graphics g = Graphics.FromImage(img);
-
-            g.CopyFromScreen(PointToScreen(pictureBox1.Location), new Point(0, 0), new Size(pictureBox1.Width, pictureBox1.Height));
-
-            Clipboard.SetImage(img);
-
-            g.Dispose();
         }
 
         private void btnWriteText_Click(object sender, EventArgs e)
@@ -313,19 +307,24 @@ namespace multimedia
 
         private void btnAddText_Click(object sender, EventArgs e)
         {
-            if (pictureBox1.Image != null)
-            {
-                using (Font font1 = new Font("Arial", 17f))
-                {
-                    Bitmap bmp = new Bitmap(pictureBox1.Image);
-                    using (Graphics gr = Graphics.FromImage(bmp))
-                    {
-                        var p = pictureBox1.PointToClient(Cursor.Position);
-                        gr.DrawString(textBox1.Text.ToString(), font1, Brushes.Black, p);
-                    }
-                    using (pictureBox1.Image) pictureBox1.Image = bmp;
-                }
-            }
+            //if (pictureBox1.Image != null)
+            //{
+            //    using (Font font1 = new Font("Arial", 17f))
+            //    {
+            //        Bitmap bmp = new Bitmap(pictureBox1.Image);
+            //        using (Graphics gr = Graphics.FromImage(bmp))
+            //        {
+            //            var p = pictureBox1.PointToClient(Cursor.Position);
+            //            gr.DrawString(textBox1.Text.ToString(), font1, Brushes.Black, p);
+            //        }
+            //        using (pictureBox1.Image) pictureBox1.Image = bmp;
+            //    }
+            //}
+            
+            lbTxt.Text += textBox1.Text;
+            textBox1.Text = "";
+
+           
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -502,10 +501,34 @@ namespace multimedia
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
         }
 
+        private void lbTxt_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void pictureBox1_MouseEnter(object sender, EventArgs e)
         {
             base.OnMouseEnter(e);
             Cursor = Cursors.Cross;
+        }
+
+        private void btnRecoveryTxt_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = lbTxt.Text;
+        }
+
+        private void btnFont_Click(object sender, EventArgs e)
+        {
+            FontDialog fontDialog = new FontDialog();
+            fontDialog.ShowColor = true;
+            if (fontDialog.ShowDialog() == DialogResult.OK & !string.IsNullOrEmpty(textBox1.Text))
+            {
+                textBox1.Font = fontDialog.Font;
+                textBox1.ForeColor = fontDialog.Color;
+                lbTxt.Font = fontDialog.Font;
+                lbTxt.ForeColor = fontDialog.Color;
+
+            }
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
@@ -527,6 +550,11 @@ namespace multimedia
             base.OnMouseEnter(e);
             Cursor = Cursors.Default;
         }
-
+        private void lbtext()
+        {
+            ControlExtension.Draggable(lbTxt, true);
+            lbTxt.Parent = pictureBox1;
+            lbTxt.BackColor = Color.Transparent;
+        }
     }
 }
