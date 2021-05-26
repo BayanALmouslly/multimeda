@@ -230,6 +230,7 @@ namespace multimedia
 
         private void button4_Click(object sender, EventArgs e)
         {
+            //trancparent
             unVisiblePanel();
             Bitmap pic = new Bitmap(pictureBox1.Image);
             for (int w = 0; w < pic.Width; w++)
@@ -269,8 +270,6 @@ namespace multimedia
             unVisiblePanel();
             Image img = pictureBox1.Image;
             img.RotateFlip(RotateFlipType.Rotate270FlipNone);
-            pictureBox1.Image = img;
-            pictureBox1.Image = img;
             pictureBox1.Image = img;
         }
 
@@ -397,7 +396,37 @@ namespace multimedia
 
         private void btnmerge_Click_1(object sender, EventArgs e)
         {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox1.BackgroundImage = new Bitmap(open.FileName);
+              
+            }
 
+            Bitmap pic = new Bitmap(pictureBox1.Image);
+            for (int w = 0; w < pic.Width; w++)
+            {
+                for (int h = 0; h < pic.Height; h++)
+                {
+                    Color c = pic.GetPixel(w, h);
+                    Color newC = Color.FromArgb(50, c);
+                    pic.SetPixel(w, h, newC);
+                }
+            }
+            pictureBox1.Image = pic;
+
+            Bitmap pic2 = new Bitmap(pictureBox1.BackgroundImage);
+            for (int w = 0; w < pic2.Width; w++)
+            {
+                for (int h = 0; h < pic2.Height; h++)
+                {
+                    Color c = pic2.GetPixel(w, h);
+                    Color newC = Color.FromArgb(50, c);
+                    pic2.SetPixel(w, h, newC);
+                }
+            }
+            pictureBox1.BackgroundImage = pic2;
         }
 
         private void button6_Click_1(object sender, EventArgs e)
