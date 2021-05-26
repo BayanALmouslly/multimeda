@@ -52,6 +52,8 @@ namespace multimedia
             pnSave.Visible = false;
             btnCropImg.Visible = false;
             undoImg = pictureBox1.Image;
+            lbTxt.Text = null;
+
 
 
         }
@@ -630,7 +632,11 @@ namespace multimedia
             }
             pictureBox1.Invalidate();
             unVisiblePanel();
-            lbTxt.Text = null;
+        }
+
+        private void openimg_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.Show("OpenImage", openimg);
         }
     }
 }

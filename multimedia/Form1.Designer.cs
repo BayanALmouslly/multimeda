@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnRemoveImg = new System.Windows.Forms.Button();
@@ -89,6 +90,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnUndo = new System.Windows.Forms.Button();
             this.btnSaveTxt = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptstream)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trRed)).BeginInit();
@@ -313,6 +315,7 @@
             this.openimg.Text = "Open Image";
             this.openimg.UseVisualStyleBackColor = false;
             this.openimg.Click += new System.EventHandler(this.openimg_Click);
+            this.openimg.MouseHover += new System.EventHandler(this.openimg_MouseHover);
             // 
             // btnSaveDB
             // 
@@ -561,7 +564,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Gray;
             this.pictureBox1.Location = new System.Drawing.Point(3, 8);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(326, 359);
+            this.pictureBox1.Size = new System.Drawing.Size(338, 359);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -573,7 +576,7 @@
             this.pnPictsurbox.BackColor = System.Drawing.Color.Gray;
             this.pnPictsurbox.Controls.Add(this.lbTxt);
             this.pnPictsurbox.Controls.Add(this.pictureBox1);
-            this.pnPictsurbox.Location = new System.Drawing.Point(283, 27);
+            this.pnPictsurbox.Location = new System.Drawing.Point(239, 15);
             this.pnPictsurbox.Name = "pnPictsurbox";
             this.pnPictsurbox.Size = new System.Drawing.Size(344, 382);
             this.pnPictsurbox.TabIndex = 20;
@@ -682,7 +685,7 @@
             // btnCropImg
             // 
             this.btnCropImg.BackColor = System.Drawing.Color.Gray;
-            this.btnCropImg.Location = new System.Drawing.Point(526, 400);
+            this.btnCropImg.Location = new System.Drawing.Point(484, 396);
             this.btnCropImg.Name = "btnCropImg";
             this.btnCropImg.Size = new System.Drawing.Size(101, 38);
             this.btnCropImg.TabIndex = 31;
@@ -704,9 +707,9 @@
             // txtSearch
             // 
             this.txtSearch.BackColor = System.Drawing.Color.Gray;
-            this.txtSearch.Location = new System.Drawing.Point(54, 31);
+            this.txtSearch.Location = new System.Drawing.Point(61, 31);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(86, 20);
+            this.txtSearch.Size = new System.Drawing.Size(79, 20);
             this.txtSearch.TabIndex = 2;
             // 
             // btnSearch
@@ -714,9 +717,9 @@
             this.btnSearch.BackColor = System.Drawing.Color.Gray;
             this.btnSearch.Location = new System.Drawing.Point(12, 29);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(36, 23);
+            this.btnSearch.Size = new System.Drawing.Size(53, 23);
             this.btnSearch.TabIndex = 1;
-            this.btnSearch.Text = "button8";
+            this.btnSearch.Text = "search";
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
@@ -747,7 +750,7 @@
             this.pnSave.Controls.Add(this.label4);
             this.pnSave.Controls.Add(this.btnSaveDB);
             this.pnSave.Controls.Add(this.txtNameDb);
-            this.pnSave.Location = new System.Drawing.Point(12, 30);
+            this.pnSave.Location = new System.Drawing.Point(288, 433);
             this.pnSave.Name = "pnSave";
             this.pnSave.Size = new System.Drawing.Size(267, 156);
             this.pnSave.TabIndex = 34;
@@ -765,7 +768,7 @@
             // btnUndo
             // 
             this.btnUndo.BackColor = System.Drawing.Color.Gray;
-            this.btnUndo.Location = new System.Drawing.Point(281, 400);
+            this.btnUndo.Location = new System.Drawing.Point(237, 396);
             this.btnUndo.Name = "btnUndo";
             this.btnUndo.Size = new System.Drawing.Size(101, 38);
             this.btnUndo.TabIndex = 35;
@@ -890,6 +893,7 @@
         private System.Windows.Forms.Button btnRemoveImg;
         private System.Windows.Forms.Button btnUndo;
         private System.Windows.Forms.Button btnSaveTxt;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
