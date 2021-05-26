@@ -1,19 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.UI.DataVisualization.Charting;
 using System.Windows.Forms;
-using Emgu.CV;
-using Emgu.CV.Structure;
 using MultiMediaCV;
-using MultiMediaCV.Enums;
 
 
 namespace multimedia
@@ -21,7 +10,7 @@ namespace multimedia
     public  partial  class  Form1 : Form
     {
         bool _streaming;
-        Capture _capture;
+       // Capture _capture;
         Image tempImage;
         Image SaveFilterImage;
 
@@ -123,12 +112,12 @@ namespace multimedia
         }
 
        
-        private void streaming(object sender, System.EventArgs e)
-        {
-            var img = _capture.QueryFrame().ToImage<Bgr, byte>();
-            var bmp = img.Bitmap;
-            ptstream.Image = bmp;
-        }
+        //private void streaming(object sender, System.EventArgs e)
+        //{
+        //    var img = _capture.QueryFrame().ToImage<Bgr, byte>();
+        //    var bmp = img.Bitmap;
+        //    ptstream.Image = bmp;
+        //}
 
         private void ptstream_Click(object sender, EventArgs e)
         {

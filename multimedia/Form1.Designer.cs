@@ -73,6 +73,7 @@
             this.pnPictsurbox = new System.Windows.Forms.Panel();
             this.lbTxt = new System.Windows.Forms.Label();
             this.pantext = new System.Windows.Forms.Panel();
+            this.btnSaveTxt = new System.Windows.Forms.Button();
             this.btnFont = new System.Windows.Forms.Button();
             this.btnRecoveryTxt = new System.Windows.Forms.Button();
             this.btnAddText = new System.Windows.Forms.Button();
@@ -89,7 +90,6 @@
             this.pnSave = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.btnUndo = new System.Windows.Forms.Button();
-            this.btnSaveTxt = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptstream)).BeginInit();
@@ -576,7 +576,7 @@
             this.pnPictsurbox.BackColor = System.Drawing.Color.Gray;
             this.pnPictsurbox.Controls.Add(this.lbTxt);
             this.pnPictsurbox.Controls.Add(this.pictureBox1);
-            this.pnPictsurbox.Location = new System.Drawing.Point(239, 15);
+            this.pnPictsurbox.Location = new System.Drawing.Point(247, 14);
             this.pnPictsurbox.Name = "pnPictsurbox";
             this.pnPictsurbox.Size = new System.Drawing.Size(344, 382);
             this.pnPictsurbox.TabIndex = 20;
@@ -604,6 +604,17 @@
             this.pantext.Name = "pantext";
             this.pantext.Size = new System.Drawing.Size(383, 83);
             this.pantext.TabIndex = 21;
+            // 
+            // btnSaveTxt
+            // 
+            this.btnSaveTxt.BackColor = System.Drawing.Color.Gray;
+            this.btnSaveTxt.Location = new System.Drawing.Point(295, 31);
+            this.btnSaveTxt.Name = "btnSaveTxt";
+            this.btnSaveTxt.Size = new System.Drawing.Size(62, 31);
+            this.btnSaveTxt.TabIndex = 28;
+            this.btnSaveTxt.Text = "Save";
+            this.btnSaveTxt.UseVisualStyleBackColor = false;
+            this.btnSaveTxt.Click += new System.EventHandler(this.btnSaveTxt_Click);
             // 
             // btnFont
             // 
@@ -685,7 +696,7 @@
             // btnCropImg
             // 
             this.btnCropImg.BackColor = System.Drawing.Color.Gray;
-            this.btnCropImg.Location = new System.Drawing.Point(484, 396);
+            this.btnCropImg.Location = new System.Drawing.Point(493, 394);
             this.btnCropImg.Name = "btnCropImg";
             this.btnCropImg.Size = new System.Drawing.Size(101, 38);
             this.btnCropImg.TabIndex = 31;
@@ -768,24 +779,13 @@
             // btnUndo
             // 
             this.btnUndo.BackColor = System.Drawing.Color.Gray;
-            this.btnUndo.Location = new System.Drawing.Point(237, 396);
+            this.btnUndo.Location = new System.Drawing.Point(245, 395);
             this.btnUndo.Name = "btnUndo";
             this.btnUndo.Size = new System.Drawing.Size(101, 38);
             this.btnUndo.TabIndex = 35;
             this.btnUndo.Text = "undo";
             this.btnUndo.UseVisualStyleBackColor = false;
             this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
-            // 
-            // btnSaveTxt
-            // 
-            this.btnSaveTxt.BackColor = System.Drawing.Color.Gray;
-            this.btnSaveTxt.Location = new System.Drawing.Point(295, 31);
-            this.btnSaveTxt.Name = "btnSaveTxt";
-            this.btnSaveTxt.Size = new System.Drawing.Size(62, 31);
-            this.btnSaveTxt.TabIndex = 28;
-            this.btnSaveTxt.Text = "Save";
-            this.btnSaveTxt.UseVisualStyleBackColor = false;
-            this.btnSaveTxt.Click += new System.EventHandler(this.btnSaveTxt_Click);
             // 
             // Form1
             // 
