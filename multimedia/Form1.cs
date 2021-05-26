@@ -12,6 +12,10 @@ using System.Web.UI.DataVisualization.Charting;
 using System.Windows.Forms;
 using Emgu.CV;
 using Emgu.CV.Structure;
+using MultiMediaCV;
+using MultiMediaCV.Enums;
+
+
 namespace multimedia
 {
     public  partial  class  Form1 : Form
@@ -27,46 +31,58 @@ namespace multimedia
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            
             unVisiblePanel();
 
-            trZoom.Minimum = 1;
-            trZoom.Maximum = 6;
-            trZoom.SmallChange = 1;
-            trZoom.LargeChange = 1;
-            trZoom.UseWaitCursor = false;
+            
 
             this.DoubleBuffered = true;
             lbtext();
 
 
         }
+        Image undoImg;
         private void unVisiblePanel()
         {
             panCamera.Visible = false;
-            pnzoom.Visible = false;
             panfilter.Visible = false;
             pnResize.Visible = false;
             pantext.Visible = false;
-            pnConvert.Visible = false;
+            pnSearch.Visible = false;
+            pnSave.Visible = false;
+            btnCropImg.Visible = false;
+            undoImg = pictureBox1.Image;
+
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+
         }
 
         private void openimg_Click(object sender, EventArgs e)
         {
-            OpenFileDialog open = new OpenFileDialog();
-            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
-            if (open.ShowDialog() == DialogResult.OK)
-            {
-                pictureBox1.Image = new Bitmap(open.FileName);
-                tempImage = pictureBox1.Image;
-                imgZoom = new PictureBox();
-                imgZoom.Image = pictureBox1.Image;
-                //textBox1.Text = open.FileName;
-            }
+
+            //OpenFileDialog open = new OpenFileDialog();
+            //open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            //if (open.ShowDialog() == DialogResult.OK)
+            //{
+            //    pictureBox1.Image = new Bitmap(open.FileName);
+            //    pictureBox1.GetImageFromDevice(this);
+            //    tempImage = pictureBox1.Image;
+            //    imgZoom = new PictureBox();
+            //    imgZoom.Image = pictureBox1.Image;
+            //    //textBox1.Text = open.FileName;
+            //}
+
+            pictureBox1.GetImageFromDevice(this);
+            tempImage = pictureBox1.Image;
+            //imgZoom = new PictureBox();
+            //imgZoom.Image = pictureBox1.Image;
+            unVisiblePanel();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -74,29 +90,34 @@ namespace multimedia
             //var img = _capture.QueryFrame().ToImage<Bgr, byte>();
             //var bmp = img.Bitmap;
             //pictureBox1.Image = bmp;
-            pictureBox1.Image = ptstream.Image;
-            tempImage = pictureBox1.Image;
+            //pictureBox1.Image = ptstream.Image;
+            //tempImage = pictureBox1.Image;
 
-            ptstream.Visible = false;
-            label1.Visible = false;
-            btnStream.Visible = false;
-            button2.Visible = false;
+            //ptstream.Visible = false;
+            //label1.Visible = false;
+            //btnStream.Visible = false;
+            //button2.Visible = false;
+            pictureBox1.CaptuerWebCam(this);
+            button2.Enabled = false;
+            unVisiblePanel();
 
         }
 
         private void btnStream_Click(object sender, EventArgs e)
         {
-            if (!_streaming)
-            {
-                Application.Idle += streaming;
-                btnStream.Text = @"Stop Streaming";
-            }
-            else
-            {
-                Application.Idle -= streaming;
-                btnStream.Text = @"Start Streaming";
-            }
-            _streaming = !_streaming;
+            //if (!_streaming)
+            //{
+            //    Application.Idle += streaming;
+            //    btnStream.Text = @"Stop Streaming";
+            //}
+            //else
+            //{
+            //    Application.Idle -= streaming;
+            //    btnStream.Text = @"Start Streaming";
+            //}
+            //_streaming = !_streaming;
+            pictureBox1.GetImageFromCamera();
+            button2.Enabled = true;
         }
 
        
@@ -151,8 +172,10 @@ namespace multimedia
         private void btnRemoveEdit_Click(object sender, EventArgs e)
         {
             unVisiblePanel();
-
+            lbTxt.Text = null;
             pictureBox1.Image = tempImage;
+            pictureBox1.ResetZoom();
+
         }
 
         private void chNegative_CheckedChanged(object sender, EventArgs e)
@@ -219,15 +242,15 @@ namespace multimedia
             gpu.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
             return bm;
         }
-        PictureBox imgZoom;
-        private void trZoom_Scroll(object sender, EventArgs e)
-        {
-            if (trZoom.Value != 0)
-            {
-                pictureBox1.Image = ZoomPicture(imgZoom.Image, new Size(trZoom.Value, trZoom.Value));
+        //PictureBox imgZoom;
+        //private void trZoom_Scroll(object sender, EventArgs e)
+        //{
+        //    if (trZoom.Value != 0)
+        //    {
+        //        pictureBox1.Image = ZoomPicture(imgZoom.Image, new Size(trZoom.Value, trZoom.Value));
                 
-            }
-        }
+        //    }
+        //}
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -302,24 +325,11 @@ namespace multimedia
         {
             //zoom
             unVisiblePanel();
-            pnzoom.Visible = true;
         }
 
         private void btnAddText_Click(object sender, EventArgs e)
         {
-            //if (pictureBox1.Image != null)
-            //{
-            //    using (Font font1 = new Font("Arial", 17f))
-            //    {
-            //        Bitmap bmp = new Bitmap(pictureBox1.Image);
-            //        using (Graphics gr = Graphics.FromImage(bmp))
-            //        {
-            //            var p = pictureBox1.PointToClient(Cursor.Position);
-            //            gr.DrawString(textBox1.Text.ToString(), font1, Brushes.Black, p);
-            //        }
-            //        using (pictureBox1.Image) pictureBox1.Image = bmp;
-            //    }
-            //}
+            
             
             lbTxt.Text += textBox1.Text;
             textBox1.Text = "";
@@ -334,7 +344,7 @@ namespace multimedia
             SaveFileDialog dialog = new SaveFileDialog();
             dialog.Filter = "PNG Image|*.png|JPeg Image|*.jpg";
             dialog.Title = "Save Chart As Image File";
-            dialog.FileName = "Sample.png";
+            dialog.FileName = txtNameDb+".png";
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 int width = Convert.ToInt32(pictureBox1.Image.Width);
@@ -351,15 +361,15 @@ namespace multimedia
             {
                 if (selectformat == "JPEG")
                 {
-                    pictureBox1.Image.Save(@"C:\Users\اا\Desktop\photo.Jpeg", ImageFormat.Jpeg);
+                    pictureBox1.Image.Save(@"C:\Users\اا\Desktop\"+txtNameDb.Text+".Jpeg", ImageFormat.Jpeg);
                 }
                 else if (selectformat == "PNG")
                 {
-                    pictureBox1.Image.Save(@"C:\Users\اا\Desktop\photo.Png", ImageFormat.Png);
+                    pictureBox1.Image.Save(@"C:\Users\اا\Desktop\" + txtNameDb.Text + ".Png", ImageFormat.Png);
                 }
                 else if (selectformat == "Gif")
                 {
-                    pictureBox1.Image.Save(@"C:\Users\اا\Desktop\photo.Gif", ImageFormat.Gif);
+                    pictureBox1.Image.Save(@"C:\Users\اا\Desktop\" + txtNameDb.Text + ".Gif", ImageFormat.Gif);
                 }
                 else if (selectformat == "Tiff")
                 {
@@ -390,11 +400,11 @@ namespace multimedia
         private void button6_Click(object sender, EventArgs e)
         {
             //show convert panel
-            pnConvert.Visible = true;
         }
 
         private void btnmerge_Click_1(object sender, EventArgs e)
         {
+            unVisiblePanel();
             OpenFileDialog open = new OpenFileDialog();
             open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
             if (open.ShowDialog() == DialogResult.OK)
@@ -430,9 +440,10 @@ namespace multimedia
 
         private void button6_Click_1(object sender, EventArgs e)
         {
-            //convertformat image
+            //save panel image
             unVisiblePanel();
-            pnConvert.Visible = true;
+            pnSave.Visible = true;
+
         }
 
         private void pnConvert_Paint(object sender, PaintEventArgs e)
@@ -450,55 +461,68 @@ namespace multimedia
         {
             DataAccessLayer dal = new DataAccessLayer();
             Bitmap bitmap = new Bitmap(pictureBox1.Image);
-            CustomImage cm = new CustomImage("photo", bitmap);
+            CustomImage cm = new CustomImage(txtNameDb.Text, bitmap);
             dal.SaveImage(cm);
         }
 
         private void btnCrup_Click(object sender, EventArgs e)
         {
-            pictureBox1.MouseDown += new MouseEventHandler(pictureBox1_MouseDown);
+            //pictureBox1.MouseDown += new MouseEventHandler(pictureBox1_MouseDown);
 
-            pictureBox1.MouseMove += new MouseEventHandler(pictureBox1_MouseMove);
+            //pictureBox1.MouseMove += new MouseEventHandler(pictureBox1_MouseMove);
 
-            pictureBox1.MouseEnter += new EventHandler(pictureBox1_MouseEnter);
-            Controls.Add(pictureBox1);
+            //pictureBox1.MouseEnter += new EventHandler(pictureBox1_MouseEnter);
+            //Controls.Add(pictureBox1);
+            unVisiblePanel();
+            btnCropImg.Visible = true;
         }
-        int crpX, crpY, rectW, rectH;
-        public Pen crpPen = new Pen(Color.White);
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            base.OnMouseDown(e);
-
-            if (e.Button == System.Windows.Forms.MouseButtons.Left)
-            {
-                Cursor = Cursors.Cross;
-                crpPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-                crpX = e.X;
-                crpY = e.Y;
-
-            }
+            pictureBox1.MouseDownCV(e, Cursor); 
         }
+
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            pictureBox1.MouseMoveCV(e);
+        }
+        //int crpX, crpY, rectW, rectH;
+        //public Pen crpPen = new Pen(Color.White);
+        //private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        //{
+        //    base.OnMouseDown(e);
+
+        //    if (e.Button == System.Windows.Forms.MouseButtons.Left)
+        //    {
+        //        Cursor = Cursors.Cross;
+        //        crpPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+        //        crpX = e.X;
+        //        crpY = e.Y;
+
+        //    }
+        //}
 
         private void btnCropImg_Click(object sender, EventArgs e)
         {
-            Cursor = Cursors.Default;
-            //Now we will draw the cropped image into pictureBox2
-            Bitmap bmp2 = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            pictureBox1.DrawToBitmap(bmp2, pictureBox1.ClientRectangle);
+            //Cursor = Cursors.Default;
+            ////Now we will draw the cropped image into pictureBox2
+            //Bitmap bmp2 = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            //pictureBox1.DrawToBitmap(bmp2, pictureBox1.ClientRectangle);
 
-            Bitmap crpImg = new Bitmap(rectW, rectH);
+            //Bitmap crpImg = new Bitmap(rectW, rectH);
 
-            for (int i = 0; i < rectW; i++)
-            {
-                for (int y = 0; y < rectH; y++)
-                {
-                    Color pxlclr = bmp2.GetPixel(crpX + i, crpY + y);
-                    crpImg.SetPixel(i, y, pxlclr);
-                }
-            }
+            //for (int i = 0; i < rectW; i++)
+            //{
+            //    for (int y = 0; y < rectH; y++)
+            //    {
+            //        Color pxlclr = bmp2.GetPixel(crpX + i, crpY + y);
+            //        crpImg.SetPixel(i, y, pxlclr);
+            //    }
+            //}
 
-            pictureBox1.Image = (Image)crpImg;
-            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            //pictureBox1.Image = (Image)crpImg;
+            //pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox1.Crop(Cursor);
+
         }
 
         private void lbTxt_Click(object sender, EventArgs e)
@@ -531,20 +555,20 @@ namespace multimedia
             }
         }
 
-        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
-        {
-            base.OnMouseMove(e);
-            if (e.Button == System.Windows.Forms.MouseButtons.Left)
-            {
-                pictureBox1.Refresh();
-                //set width and height for crop rectangle.
-                rectW = e.X - crpX;
-                rectH = e.Y - crpY;
-                Graphics g = pictureBox1.CreateGraphics();
-                g.DrawRectangle(crpPen, crpX, crpY, rectW, rectH);
-                g.Dispose();
-            }
-        }
+        //private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        //{
+        //    base.OnMouseMove(e);
+        //    if (e.Button == System.Windows.Forms.MouseButtons.Left)
+        //    {
+        //        pictureBox1.Refresh();
+        //        //set width and height for crop rectangle.
+        //        rectW = e.X - crpX;
+        //        rectH = e.Y - crpY;
+        //        Graphics g = pictureBox1.CreateGraphics();
+        //        g.DrawRectangle(crpPen, crpX, crpY, rectW, rectH);
+        //        g.Dispose();
+        //    }
+        //}
         protected override void OnMouseEnter(EventArgs e)
         {
             base.OnMouseEnter(e);
@@ -555,6 +579,58 @@ namespace multimedia
             ControlExtension.Draggable(lbTxt, true);
             lbTxt.Parent = pictureBox1;
             lbTxt.BackColor = Color.Transparent;
+        }
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            GetImage.CloseWebCam();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            DataAccessLayer dal = new DataAccessLayer();
+            CustomImage img;
+            var res = dal.Search(txtSearch.Text);
+            for (int i = 0; i <res.Count; i++)
+            {
+                img = new CustomImage(res[i].id, res[i].Name,res[i].Binary);
+                listBox1.Items.Add(img.Bitmap);
+            }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            pictureBox1.Image = (Image) listBox1.SelectedItem;
+        }
+
+        private void btnShowSearch_Click(object sender, EventArgs e)
+        {
+            unVisiblePanel();
+            pnSearch.Visible = true;
+        }
+
+        private void btnRemoveImg_Click(object sender, EventArgs e)
+        {
+            unVisiblePanel();
+            pictureBox1.Image = null;
+            pictureBox1.BackgroundImage = null;
+        }
+
+        private void btnUndo_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = undoImg;
+        }
+
+        private void btnSaveTxt_Click(object sender, EventArgs e)
+        {
+            using (Font font = new Font(lbTxt.Font.FontFamily, lbTxt.Font.Size))
+            using (Graphics G = Graphics.FromImage(pictureBox1.Image))
+            {
+                G.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SingleBitPerPixel;
+                G.DrawString(lbTxt.Text, font, Brushes.Black, lbTxt.Location.X, lbTxt.Location.Y);
+            }
+            pictureBox1.Invalidate();
+            unVisiblePanel();
+            lbTxt.Text = null;
         }
     }
 }

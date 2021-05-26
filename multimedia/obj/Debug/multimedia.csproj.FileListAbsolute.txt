@@ -75,6 +75,7 @@ C:\Users\اا\Desktop\multimedia\multimedia\multimedia\obj\Debug\multimedia.pdb
 C:\Users\اا\Desktop\multimedia\multimedia\multimedia\bin\Debug\AForge.dll
 C:\Users\اا\Desktop\multimedia\multimedia\multimedia\bin\Debug\AForge.Video.DirectShow.dll
 C:\Users\اا\Desktop\multimedia\multimedia\multimedia\bin\Debug\AForge.Video.dll
-C:\Users\اا\Desktop\multimedia\multimedia\multimedia\bin\Debug\Moalaa.dll
 C:\Users\اا\Desktop\multimedia\multimedia\multimedia\obj\Debug\multimedia.camera.resources
 C:\Users\اا\Desktop\multimedia\multimedia\multimedia\bin\Debug\Control.Draggable.dll
+C:\Users\اا\Desktop\multimedia\multimedia\multimedia\bin\Debug\MultiMediaCV.dll
+C:\Users\اا\Desktop\multimedia\multimedia\multimedia\bin\Debug\Moalaa.dll

@@ -63,6 +63,9 @@
     <Reference Include="Moalaa">
       <HintPath>..\..\Moalaa.dll</HintPath>
     </Reference>
+    <Reference Include="MultiMediaCV">
+      <HintPath>..\..\MultiMediaCV.dll</HintPath>
+    </Reference>
     <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
       <HintPath>..\packages\OpenTK.1.1.2225.0\lib\net20\OpenTK.dll</HintPath>
     </Reference>
