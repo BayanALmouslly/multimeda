@@ -91,7 +91,8 @@ namespace multimedia
             //label1.Visible = false;
             //btnStream.Visible = false;
             //button2.Visible = false;
-            pictureBox1.CaptuerWebCam(this);
+            ptstream.CaptuerWebCam(this);
+            pictureBox1.Image = ptstream.Image;
             button2.Enabled = false;
             unVisiblePanel();
 
