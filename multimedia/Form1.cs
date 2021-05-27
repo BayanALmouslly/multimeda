@@ -637,5 +637,11 @@ namespace multimedia
         {
             toolTip1.Show("OpenImage", openimg);
         }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            pictureBox1.ResetZoom();
+
+        }
     }
 }

@@ -91,6 +91,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnUndo = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptstream)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trRed)).BeginInit();
@@ -788,12 +789,24 @@
             this.btnUndo.UseVisualStyleBackColor = false;
             this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
             // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Gray;
+            this.button3.Location = new System.Drawing.Point(368, 395);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(101, 38);
+            this.button3.TabIndex = 37;
+            this.button3.Text = "ResetZoom";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(770, 613);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.btnUndo);
             this.Controls.Add(this.pnSearch);
             this.Controls.Add(this.btnCropImg);
@@ -895,6 +908,7 @@
         private System.Windows.Forms.Button btnUndo;
         private System.Windows.Forms.Button btnSaveTxt;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button button3;
     }
 }
 
