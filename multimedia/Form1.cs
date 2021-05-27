@@ -42,6 +42,9 @@ namespace multimedia
             undoIamges.Push(pictureBox1.Image);
             //undoImg = pictureBox1.Image;
             lbTxt.Text = null;
+            button2.Visible = false;
+
+            enabledButton();
 
 
 
@@ -74,9 +77,7 @@ namespace multimedia
         {
             try
             {
-                ptstream.CaptuerWebCam(this);
-                pictureBox1.Image = ptstream.Image;
-                button2.Enabled = false;
+                pictureBox1.CaptuerWebCam(this);
                 unVisiblePanel();
                 enabledButton();
             }
@@ -121,10 +122,8 @@ namespace multimedia
         private void button1_Click(object sender, EventArgs e)
         {
             unVisiblePanel();
-
-            panCamera.Visible = true;
-            ptstream.GetImageFromCamera();
-            button2.Enabled = true;
+            button2.Visible = true;
+            pictureBox1.GetImageFromCamera();
             enabledButton();
         }
 
