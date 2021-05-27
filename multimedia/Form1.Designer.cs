@@ -132,17 +132,15 @@
             this.panel1.Controls.Add(this.btnMirror);
             this.panel1.Controls.Add(this.btnRemoveEdit);
             this.panel1.Controls.Add(this.btnFilter);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.openimg);
-            this.panel1.Location = new System.Drawing.Point(630, 2);
+            this.panel1.Location = new System.Drawing.Point(630, 89);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(136, 533);
+            this.panel1.Size = new System.Drawing.Size(136, 472);
             this.panel1.TabIndex = 4;
             // 
             // btnRemoveImg
             // 
             this.btnRemoveImg.BackColor = System.Drawing.Color.Gray;
-            this.btnRemoveImg.Location = new System.Drawing.Point(0, 494);
+            this.btnRemoveImg.Location = new System.Drawing.Point(0, 429);
             this.btnRemoveImg.Name = "btnRemoveImg";
             this.btnRemoveImg.Size = new System.Drawing.Size(136, 38);
             this.btnRemoveImg.TabIndex = 32;
@@ -153,7 +151,7 @@
             // btnShowSearch
             // 
             this.btnShowSearch.BackColor = System.Drawing.Color.Gray;
-            this.btnShowSearch.Location = new System.Drawing.Point(0, 383);
+            this.btnShowSearch.Location = new System.Drawing.Point(0, 318);
             this.btnShowSearch.Name = "btnShowSearch";
             this.btnShowSearch.Size = new System.Drawing.Size(136, 38);
             this.btnShowSearch.TabIndex = 31;
@@ -164,7 +162,7 @@
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.Gray;
-            this.button6.Location = new System.Drawing.Point(0, 420);
+            this.button6.Location = new System.Drawing.Point(0, 355);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(136, 38);
             this.button6.TabIndex = 27;
@@ -175,7 +173,7 @@
             // btnmerge
             // 
             this.btnmerge.BackColor = System.Drawing.Color.Gray;
-            this.btnmerge.Location = new System.Drawing.Point(0, 348);
+            this.btnmerge.Location = new System.Drawing.Point(0, 283);
             this.btnmerge.Name = "btnmerge";
             this.btnmerge.Size = new System.Drawing.Size(136, 38);
             this.btnmerge.TabIndex = 24;
@@ -186,9 +184,9 @@
             // btnReverse
             // 
             this.btnReverse.BackColor = System.Drawing.Color.Gray;
-            this.btnReverse.Location = new System.Drawing.Point(0, 240);
+            this.btnReverse.Location = new System.Drawing.Point(0, 173);
             this.btnReverse.Name = "btnReverse";
-            this.btnReverse.Size = new System.Drawing.Size(136, 34);
+            this.btnReverse.Size = new System.Drawing.Size(136, 40);
             this.btnReverse.TabIndex = 13;
             this.btnReverse.Text = "reverse";
             this.btnReverse.UseVisualStyleBackColor = false;
@@ -197,7 +195,7 @@
             // btnRotate
             // 
             this.btnRotate.BackColor = System.Drawing.Color.Gray;
-            this.btnRotate.Location = new System.Drawing.Point(0, 207);
+            this.btnRotate.Location = new System.Drawing.Point(0, 142);
             this.btnRotate.Name = "btnRotate";
             this.btnRotate.Size = new System.Drawing.Size(136, 34);
             this.btnRotate.TabIndex = 12;
@@ -208,7 +206,7 @@
             // btnResize
             // 
             this.btnResize.BackColor = System.Drawing.Color.Gray;
-            this.btnResize.Location = new System.Drawing.Point(0, 173);
+            this.btnResize.Location = new System.Drawing.Point(0, 108);
             this.btnResize.Name = "btnResize";
             this.btnResize.Size = new System.Drawing.Size(136, 36);
             this.btnResize.TabIndex = 11;
@@ -219,7 +217,7 @@
             // btnWriteText
             // 
             this.btnWriteText.BackColor = System.Drawing.Color.Gray;
-            this.btnWriteText.Location = new System.Drawing.Point(0, 310);
+            this.btnWriteText.Location = new System.Drawing.Point(0, 245);
             this.btnWriteText.Name = "btnWriteText";
             this.btnWriteText.Size = new System.Drawing.Size(136, 46);
             this.btnWriteText.TabIndex = 22;
@@ -230,7 +228,7 @@
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.Gray;
-            this.button4.Location = new System.Drawing.Point(0, 136);
+            this.button4.Location = new System.Drawing.Point(0, 71);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(136, 38);
             this.button4.TabIndex = 10;
@@ -241,9 +239,9 @@
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.Gray;
-            this.button5.Location = new System.Drawing.Point(0, 271);
+            this.button5.Location = new System.Drawing.Point(0, 208);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(136, 43);
+            this.button5.Size = new System.Drawing.Size(136, 40);
             this.button5.TabIndex = 21;
             this.button5.Text = "copy";
             this.button5.UseVisualStyleBackColor = false;
@@ -252,7 +250,7 @@
             // btnMirror
             // 
             this.btnMirror.BackColor = System.Drawing.Color.Gray;
-            this.btnMirror.Location = new System.Drawing.Point(0, 102);
+            this.btnMirror.Location = new System.Drawing.Point(0, 37);
             this.btnMirror.Name = "btnMirror";
             this.btnMirror.Size = new System.Drawing.Size(136, 37);
             this.btnMirror.TabIndex = 8;
@@ -263,7 +261,7 @@
             // btnRemoveEdit
             // 
             this.btnRemoveEdit.BackColor = System.Drawing.Color.Gray;
-            this.btnRemoveEdit.Location = new System.Drawing.Point(0, 458);
+            this.btnRemoveEdit.Location = new System.Drawing.Point(0, 393);
             this.btnRemoveEdit.Name = "btnRemoveEdit";
             this.btnRemoveEdit.Size = new System.Drawing.Size(136, 38);
             this.btnRemoveEdit.TabIndex = 7;
@@ -274,9 +272,9 @@
             // btnFilter
             // 
             this.btnFilter.BackColor = System.Drawing.Color.Gray;
-            this.btnFilter.Location = new System.Drawing.Point(0, 66);
+            this.btnFilter.Location = new System.Drawing.Point(0, 1);
             this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(136, 38);
+            this.btnFilter.Size = new System.Drawing.Size(133, 38);
             this.btnFilter.TabIndex = 6;
             this.btnFilter.Text = "Filter";
             this.btnFilter.UseVisualStyleBackColor = false;
@@ -285,7 +283,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Gray;
-            this.button1.Location = new System.Drawing.Point(0, 33);
+            this.button1.Location = new System.Drawing.Point(629, 57);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(136, 35);
             this.button1.TabIndex = 5;
@@ -296,7 +294,7 @@
             // openimg
             // 
             this.openimg.BackColor = System.Drawing.Color.Gray;
-            this.openimg.Location = new System.Drawing.Point(0, 1);
+            this.openimg.Location = new System.Drawing.Point(629, 22);
             this.openimg.Name = "openimg";
             this.openimg.Size = new System.Drawing.Size(136, 36);
             this.openimg.TabIndex = 4;
@@ -805,6 +803,8 @@
             this.Controls.Add(this.panCamera);
             this.Controls.Add(this.panfilter);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.openimg);
+            this.Controls.Add(this.button1);
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Name = "Form1";
             this.Text = "Multimedia";

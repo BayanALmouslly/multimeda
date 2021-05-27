@@ -10,7 +10,7 @@ namespace multimedia
 {
     public  partial  class  Form1 : Form
     {
-        bool _streaming;
+        //bool _streaming;
        // Capture _capture;
         Image tempImage;
         Image SaveFilterImage;
@@ -23,9 +23,7 @@ namespace multimedia
         {
             
             unVisiblePanel();
-
-            
-
+            enabledButton();
             this.DoubleBuffered = true;
             lbtext();
 
@@ -57,28 +55,36 @@ namespace multimedia
 
         private void openimg_Click(object sender, EventArgs e)
         {
-            pictureBox1.GetImageFromDevice(this);
-            tempImage = pictureBox1.Image;
-            unVisiblePanel();
+            try
+            {
+                pictureBox1.GetImageFromDevice(this);
+                tempImage = pictureBox1.Image;
+                unVisiblePanel();
+                enabledButton();
+            }
+            catch (Exception)
+            {
+
+            }
+            
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //var img = _capture.QueryFrame().ToImage<Bgr, byte>();
-            //var bmp = img.Bitmap;
-            //pictureBox1.Image = bmp;
-            //pictureBox1.Image = ptstream.Image;
-            //tempImage = pictureBox1.Image;
+            try
+            {
+                ptstream.CaptuerWebCam(this);
+                pictureBox1.Image = ptstream.Image;
+                button2.Enabled = false;
+                unVisiblePanel();
+                enabledButton();
+            }
+            catch
+            {
 
-            //ptstream.Visible = false;
-            //label1.Visible = false;
-            //btnStream.Visible = false;
-            //button2.Visible = false;
-            ptstream.CaptuerWebCam(this);
-            pictureBox1.Image = ptstream.Image;
-            button2.Enabled = false;
-            unVisiblePanel();
+            }
+           
 
         }
 
@@ -119,6 +125,7 @@ namespace multimedia
             panCamera.Visible = true;
             ptstream.GetImageFromCamera();
             button2.Enabled = true;
+            enabledButton();
         }
 
         private void changeScroll(object sender, EventArgs e)
@@ -542,6 +549,7 @@ namespace multimedia
             unVisiblePanel();
             pictureBox1.Image = null;
             pictureBox1.BackgroundImage = null;
+            enabledButton();
         }
 
         private void btnUndo_Click(object sender, EventArgs e)
@@ -559,7 +567,7 @@ namespace multimedia
             using (Graphics G = Graphics.FromImage(pictureBox1.Image))
             {
                 G.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SingleBitPerPixel;
-                G.DrawString(lbTxt.Text, font, Brushes.Black, lbTxt.Location.X, lbTxt.Location.Y);
+                G.DrawString(lbTxt.Text, font, Brushes.Red, lbTxt.Location.X, lbTxt.Location.Y);
             }
             pictureBox1.Invalidate();
             unVisiblePanel();
@@ -578,13 +586,50 @@ namespace multimedia
 
         private void pictureBox1_MouseMove_1(object sender, MouseEventArgs e)
         {
-            pictureBox1.MouseMoveCV(e);
+            try
+            {
+                pictureBox1.MouseMoveCV(e);
+
+            }
+            catch (Exception)
+            {
+
+            }
 
         }
 
         private void pictureBox1_MouseDown_1(object sender, MouseEventArgs e)
         {
-            pictureBox1.MouseDownCV(e, Cursor, Color.Red);
+            try
+            {
+                pictureBox1.MouseDownCV(e, Cursor, Color.Red);
+
+            }
+            catch
+            {
+
+            }
+        }
+       private void enabledButton()
+        {
+            if (pictureBox1.Image == null)
+            {
+                panel1.Enabled = false;
+                openimg.Enabled = true;
+                button1.Enabled = true;
+                btnUndo.Enabled = false;
+                button3.Enabled = false;
+                btnCropImg.Enabled = false;
+            }
+            else
+            {
+                panel1.Enabled = true;
+                openimg.Enabled = true;
+                button1.Enabled = true;
+                btnUndo.Enabled = true;
+                button3.Enabled = true;
+                btnCropImg.Enabled = true;
+            }
 
         }
     }
