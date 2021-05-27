@@ -33,7 +33,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnRemoveImg = new System.Windows.Forms.Button();
             this.btnShowSearch = new System.Windows.Forms.Button();
-            this.btnCrup = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.btnmerge = new System.Windows.Forms.Button();
             this.btnReverse = new System.Windows.Forms.Button();
@@ -122,7 +121,6 @@
             this.panel1.BackColor = System.Drawing.Color.Gray;
             this.panel1.Controls.Add(this.btnRemoveImg);
             this.panel1.Controls.Add(this.btnShowSearch);
-            this.panel1.Controls.Add(this.btnCrup);
             this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.btnmerge);
             this.panel1.Controls.Add(this.btnReverse);
@@ -138,13 +136,13 @@
             this.panel1.Controls.Add(this.openimg);
             this.panel1.Location = new System.Drawing.Point(630, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(136, 572);
+            this.panel1.Size = new System.Drawing.Size(136, 533);
             this.panel1.TabIndex = 4;
             // 
             // btnRemoveImg
             // 
             this.btnRemoveImg.BackColor = System.Drawing.Color.Gray;
-            this.btnRemoveImg.Location = new System.Drawing.Point(0, 532);
+            this.btnRemoveImg.Location = new System.Drawing.Point(0, 494);
             this.btnRemoveImg.Name = "btnRemoveImg";
             this.btnRemoveImg.Size = new System.Drawing.Size(136, 38);
             this.btnRemoveImg.TabIndex = 32;
@@ -155,7 +153,7 @@
             // btnShowSearch
             // 
             this.btnShowSearch.BackColor = System.Drawing.Color.Gray;
-            this.btnShowSearch.Location = new System.Drawing.Point(0, 421);
+            this.btnShowSearch.Location = new System.Drawing.Point(0, 383);
             this.btnShowSearch.Name = "btnShowSearch";
             this.btnShowSearch.Size = new System.Drawing.Size(136, 38);
             this.btnShowSearch.TabIndex = 31;
@@ -163,21 +161,10 @@
             this.btnShowSearch.UseVisualStyleBackColor = false;
             this.btnShowSearch.Click += new System.EventHandler(this.btnShowSearch_Click);
             // 
-            // btnCrup
-            // 
-            this.btnCrup.BackColor = System.Drawing.Color.Gray;
-            this.btnCrup.Location = new System.Drawing.Point(1, 384);
-            this.btnCrup.Name = "btnCrup";
-            this.btnCrup.Size = new System.Drawing.Size(136, 38);
-            this.btnCrup.TabIndex = 30;
-            this.btnCrup.Text = "crop";
-            this.btnCrup.UseVisualStyleBackColor = false;
-            this.btnCrup.Click += new System.EventHandler(this.btnCrup_Click);
-            // 
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.Gray;
-            this.button6.Location = new System.Drawing.Point(0, 458);
+            this.button6.Location = new System.Drawing.Point(0, 420);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(136, 38);
             this.button6.TabIndex = 27;
@@ -276,7 +263,7 @@
             // btnRemoveEdit
             // 
             this.btnRemoveEdit.BackColor = System.Drawing.Color.Gray;
-            this.btnRemoveEdit.Location = new System.Drawing.Point(0, 496);
+            this.btnRemoveEdit.Location = new System.Drawing.Point(0, 458);
             this.btnRemoveEdit.Name = "btnRemoveEdit";
             this.btnRemoveEdit.Size = new System.Drawing.Size(136, 38);
             this.btnRemoveEdit.TabIndex = 7;
@@ -571,6 +558,8 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown_1);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove_1);
             // 
             // pnPictsurbox
             // 
@@ -796,7 +785,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(101, 38);
             this.button3.TabIndex = 37;
-            this.button3.Text = "ResetZoom";
+            this.button3.Text = "Reset Size";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
@@ -891,7 +880,6 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button btnSaveResize;
         private System.Windows.Forms.Button btnSaveDB;
-        private System.Windows.Forms.Button btnCrup;
         private System.Windows.Forms.Button btnCropImg;
         private System.Windows.Forms.Label lbTxt;
         private System.Windows.Forms.Button btnRecoveryTxt;

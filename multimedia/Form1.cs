@@ -41,7 +41,6 @@ namespace multimedia
             pantext.Visible = false;
             pnSearch.Visible = false;
             pnSave.Visible = false;
-            btnCropImg.Visible = false;
             undoIamges.Push(pictureBox1.Image);
             //undoImg = pictureBox1.Image;
             lbTxt.Text = null;
@@ -462,62 +461,10 @@ namespace multimedia
             dal.SaveImage(cm);
         }
 
-        private void btnCrup_Click(object sender, EventArgs e)
-        {
-            //pictureBox1.MouseDown += new MouseEventHandler(pictureBox1_MouseDown);
-
-            //pictureBox1.MouseMove += new MouseEventHandler(pictureBox1_MouseMove);
-
-            //pictureBox1.MouseEnter += new EventHandler(pictureBox1_MouseEnter);
-            //Controls.Add(pictureBox1);
-            unVisiblePanel();
-            btnCropImg.Visible = true;
-        }
-        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
-        {
-            pictureBox1.MouseDownCV(e, Cursor); 
-        }
-
-        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
-        {
-            pictureBox1.MouseMoveCV(e);
-        }
-        //int crpX, crpY, rectW, rectH;
-        //public Pen crpPen = new Pen(Color.White);
-        //private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
-        //{
-        //    base.OnMouseDown(e);
-
-        //    if (e.Button == System.Windows.Forms.MouseButtons.Left)
-        //    {
-        //        Cursor = Cursors.Cross;
-        //        crpPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-        //        crpX = e.X;
-        //        crpY = e.Y;
-
-        //    }
-        //}
 
         private void btnCropImg_Click(object sender, EventArgs e)
         {
-            //Cursor = Cursors.Default;
-            ////Now we will draw the cropped image into pictureBox2
-            //Bitmap bmp2 = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            //pictureBox1.DrawToBitmap(bmp2, pictureBox1.ClientRectangle);
-
-            //Bitmap crpImg = new Bitmap(rectW, rectH);
-
-            //for (int i = 0; i < rectW; i++)
-            //{
-            //    for (int y = 0; y < rectH; y++)
-            //    {
-            //        Color pxlclr = bmp2.GetPixel(crpX + i, crpY + y);
-            //        crpImg.SetPixel(i, y, pxlclr);
-            //    }
-            //}
-
-            //pictureBox1.Image = (Image)crpImg;
-            //pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+           
             pictureBox1.Crop(Cursor);
 
         }
@@ -641,6 +588,18 @@ namespace multimedia
         private void button3_Click_1(object sender, EventArgs e)
         {
             pictureBox1.ResetZoom();
+
+        }
+
+        private void pictureBox1_MouseMove_1(object sender, MouseEventArgs e)
+        {
+            pictureBox1.MouseMoveCV(e);
+
+        }
+
+        private void pictureBox1_MouseDown_1(object sender, MouseEventArgs e)
+        {
+            pictureBox1.MouseDownCV(e, Cursor, Color.Red);
 
         }
     }
