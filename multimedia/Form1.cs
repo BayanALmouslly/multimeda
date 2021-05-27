@@ -57,23 +57,8 @@ namespace multimedia
 
         private void openimg_Click(object sender, EventArgs e)
         {
-
-            //OpenFileDialog open = new OpenFileDialog();
-            //open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
-            //if (open.ShowDialog() == DialogResult.OK)
-            //{
-            //    pictureBox1.Image = new Bitmap(open.FileName);
-            //    pictureBox1.GetImageFromDevice(this);
-            //    tempImage = pictureBox1.Image;
-            //    imgZoom = new PictureBox();
-            //    imgZoom.Image = pictureBox1.Image;
-            //    //textBox1.Text = open.FileName;
-            //}
-
             pictureBox1.GetImageFromDevice(this);
             tempImage = pictureBox1.Image;
-            //imgZoom = new PictureBox();
-            //imgZoom.Image = pictureBox1.Image;
             unVisiblePanel();
 
         }

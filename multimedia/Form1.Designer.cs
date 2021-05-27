@@ -563,7 +563,6 @@
             // 
             // pnPictsurbox
             // 
-            this.pnPictsurbox.AutoScroll = true;
             this.pnPictsurbox.BackColor = System.Drawing.Color.Gray;
             this.pnPictsurbox.Controls.Add(this.lbTxt);
             this.pnPictsurbox.Controls.Add(this.pictureBox1);
