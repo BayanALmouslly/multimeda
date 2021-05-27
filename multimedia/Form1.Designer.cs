@@ -340,9 +340,9 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Gray;
-            this.button2.Location = new System.Drawing.Point(109, 350);
+            this.button2.Location = new System.Drawing.Point(249, 13);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(119, 47);
+            this.button2.Size = new System.Drawing.Size(101, 37);
             this.button2.TabIndex = 5;
             this.button2.Text = "Capture ";
             this.button2.UseVisualStyleBackColor = false;
@@ -479,11 +479,11 @@
             this.panCamera.Controls.Add(this.ptstream);
             this.panCamera.Controls.Add(this.label1);
             this.panCamera.Controls.Add(this.btnStream);
-            this.panCamera.Controls.Add(this.button2);
             this.panCamera.Location = new System.Drawing.Point(12, 12);
             this.panCamera.Name = "panCamera";
             this.panCamera.Size = new System.Drawing.Size(228, 397);
             this.panCamera.TabIndex = 16;
+            this.panCamera.Visible = false;
             // 
             // pnResize
             // 
@@ -795,6 +795,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btnUndo);
             this.Controls.Add(this.pnSearch);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.btnCropImg);
             this.Controls.Add(this.pnSave);
             this.Controls.Add(this.pantext);
